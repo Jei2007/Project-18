@@ -1,5 +1,5 @@
-var monkey , monkey_running
-var banana ,bananaImage, obstacle, obstacleImage
+var monkey, monkey_running
+var banana,bananaImage, obstacle, obstacleImage
 var FoodGroup, obstacleGroup
 var ground
 var obstacle, obstacleImage
@@ -12,7 +12,7 @@ var score = 0
 
 
 function preload(){
-  monkey_running = loadAnimation("monkey_01.png","monkey_02.png","monkey_03.png","monkey_04.png","monkey_05.png","monkey_06.png","monkey_07.png","monkey_08.png","monkey_09.png","monkey_10")
+  monkey_running = loadAnimation("Monkey_01.png","Monkey_02.png","Monkey_03.png","Monkey_04.png","Monkey_05.png","Monkey_06.png","Monkey_07.png","Monkey_08.png","Monkey_09.png","Monkey_10.png")
   
   bananaImage = loadImage("banana.png");
   obstacleImage = loadImage("stone.png");
@@ -40,9 +40,9 @@ function setup() {
 function draw() {
   background("lightblue")
   
-  console.log(gameState)
+  console.log(monkey.y)
   
-  if(touches.length > 0 || keyDown("space") && monkey.y > 470){
+  if(touches.length > 0 || keyDown("space") && monkey.y > 440){
     monkey.velocityY = -12
     touches = []
   }
@@ -89,7 +89,7 @@ function spawn_banana() {
   if(frameCount % 80 === 0) {
     banana = createSprite(450, 325, 20, 20)
     banana.addImage (bananaImage)
-    banana.scale = 0.15
+    banana.scale = 0.1
     banana.velocityX = -5
     banana.y = random(250, 330)
     banana.lifetime = 85
@@ -102,7 +102,7 @@ function spawn_obstacle() {
   if(frameCount % 300 === 0){
     obstacle = createSprite(450, 485, 20, 20)
     obstacle.addImage (obstacleImage)
-    obstacle.scale =0.2
+    obstacle.scale =0.25
     obstacle.velocityX = -5
     obstacle.lifetime = 85
     
